@@ -10,22 +10,53 @@
   <body>
     <div class="container">
       <div class="actions">
-        <button class="play" onclick="sendCommand('play-pause')">Play</button>
+        <!--PLAY/PAUSE-->
+        <button class="play" onclick="sendCommand('play-pause')">
+          <img
+            class="pause-play-img"
+            src="./icons/pause-play.png"
+            alt="Play/Pause"
+          />
+        </button>
       </div>
       <div class="video-controls">
-        <button class="rewind" onclick="sendCommand('rewind')">
-          Rewind 10s
+        <!--REWIND-->
+        <button
+          class="rewind"
+          data-command="rewind"
+          onclick="sendCommand('rewind')"
+        >
+          <img class="rewind-img" src="./icons/rewind.png" alt="Rewind" />
         </button>
-        <button class="forward" onclick="sendCommand('forward')">
-          Forward 10s
+        <!--FORWARD-->
+        <button
+          class="forward"
+          data-command="forward"
+          onclick="sendCommand('forward')"
+        >
+          <img class="forward-img" src="./icons/rewind.png" alt="Forward" />
         </button>
       </div>
       <div class="audio-controls">
-        <button class="vol up" onclick="sendCommand('volumeup')">
-          Volume Up
+        <!--VOLUME DOWN-->
+        <button
+          class="vol-down"
+          data-command="volumedown"
+          onclick="sendCommand('volumedown')"
+        >
+          <img
+            class="vol-down-img"
+            src="./icons/volume-down.png"
+            alt="Volume Down"
+          />
         </button>
-        <button class="vol down" onclick="sendCommand('volumedown')">
-          Volume Down
+        <!--VOLUME UP-->
+        <button
+          class="vol-up"
+          data-command="volumeup"
+          onclick="sendCommand('volumeup')"
+        >
+          <img class="vol-up-img" src="./icons/volume-up.png" alt="Volume Up" />
         </button>
       </div>
     </div>

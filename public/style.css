@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -22,7 +23,9 @@ body {
 .container button {
     border-radius: 20px;
     border-style: none;
-
+    background: none;
+    cursor: pointer;
+    padding: 10px;
 }
 
 .actions {
@@ -47,4 +50,29 @@ body {
     padding: 30px;
     box-shadow: 0px 0px 20px rgba(72, 72, 72, 0.4);
     border: 3px solid rgb(112, 112, 112);
+}
+
+.pause-play-img {
+    width: 50px; /* Example size */
+}
+
+.rewind-img {
+    width: 50px; /* Example size */
+}
+
+.forward-img {
+    width: 50px; /* Example size */
+    rotate: 180deg;
+}
+
+.vol-up-img {
+    width: 50px; /* Example size */
+    
+}
+.vol-down-img {
+    width: 50px; /* Example size */
+}
+
+@media screen {
+    
 }
