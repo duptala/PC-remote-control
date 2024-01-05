@@ -2,44 +2,60 @@
 
 ## Overview
 
-Remote Controller is a Node.js application that allows you to control video playback on your computer using your phone or any other device connected to your local network. It's ideal for situations like watching videos on your computer while lying in bed or sitting away from your desk.
+PC Remote Controller is an Electron and Node.js application that allows you to control video playback on your computer using your phone or any other device connected to your local network. It's ideal for managing video playback from the comfort of your bed or couch.
 
 ## Features
 
 - Play/Pause video playback.
-- Rewind and forward video.
-- Control volume.
+- Rewind and fast-forward video.
+- Control system volume.
 
 ## Prerequisites
 
-- Python version 3.10 or below (Python 3.12 is not compatible).
-- Node.js version 16 or below.
+- Python (version 3.10 was verified to work; other versions might be compatible).
+- Node.js (version 16.17.0 was used; later versions might also be compatible).
+- Electron for desktop application functionality.
 
 ## Installation
 
 1. **Clone the Repository**:
 
-`git clone https://github.com/duptala/PC-remote-control.git`
-`cd PC-remote-control`
+```
+git clone https://github.com/duptala/PC-remote-control.git
+cd PC-remote-control
+```
 
 2. **Install Dependencies**:
-   `npm install`
 
-3. **Set Up Environment Variables**:
+```
+npm install
+```
 
-- Create a `.env` file in the root directory.
-- Find your computer's local IP address using `ipconfig` (look for IPv4 Address).
-- Add your IP address to the `.env` file:
+3. **Rebuild RobotJS for Electron Compatibility**:
+
+```
+npm run rebuild
+```
+
+4. **Set Up Environment Variables**:
+
+- Rename the `.envtemplate` file to `.env`.
+- Find your computer's local IP address (IPv4) using `ipconfig` on Windows or `ifconfig` on macOS/Linux.
+- Edit the `.env` file and replace the placeholder with your actual local IP address. For example:
   ```
-  SERVER_IP=your.local.IP.address
+  SERVER_IP=192.168.1.213
   ```
+- Save the `.env` file with your changes.
 
 ## Usage
 
 1. **Start the Server**:
-   `npm start`
 
-   This will start the server on your local machine.
+```
+npm start
+```
+
+This command starts the server on your local machine and opens the Electron application.
 
 2. **Access the Interface**:
 
@@ -49,7 +65,11 @@ Remote Controller is a Node.js application that allows you to control video play
 
 3. **Control Your Videos**:
 
-- Use the interface presented to play/pause, rewind, forward, or adjust the volume of the video playing on your computer.
+- Use the web interface presented to play/pause, rewind, forward, or adjust the volume of the video playing on your computer.
+
+## Contributing
+
+Contributions to the PC Remote Controller project are welcome! Feel free to submit pull requests or create issues for bugs and feature suggestions.
 
 ## Security Note
 
