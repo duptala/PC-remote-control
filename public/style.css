@@ -1,3 +1,5 @@
+  @import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -19,24 +21,32 @@ body {
     gap: 20px;
 }
 
-
 .container button {
     border-radius: 20px;
     border-style: none;
     background: none;
     cursor: pointer;
     padding: 10px;
+    transition: background-color 0.5s, transform 0.1s ease;
+}
+
+.container button:hover {
+    background-color: rgb(156, 156, 156);
+}
+
+.container button:active {
+    transform: scale(0.86);
 }
 
 .actions {
-    width: fit-content;
+    width: 100%;
 }
 
 .actions button {
     padding: 30px;
     box-shadow: 0px 0px 20px rgba(72, 72, 72, 0.4);
     border: 3px solid rgb(112, 112, 112);
-    width: fit-content;
+    width: 100%;
 }
 
 
@@ -73,6 +83,68 @@ body {
     width: 50px; /* Example size */
 }
 
-@media screen {
-    
+.remote {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 500px;
+    border: 8px solid rgb(27, 27, 27);
+    border-radius: 25px;
+    background-color: #333;
+    box-shadow: 0 4px 50px rgba(0,0,0,0.15);
+    margin: auto;
+
+}
+
+.remote-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.red-on {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(255, 77, 77);
+    right: 20px;
+    top: 15px;
+    border-radius: 50%;
+    border: 4px solid rgb(225, 42, 42);
+    box-shadow: 0 0 10px rgba(255,0,0,0.50); 
+    animation: blink-glow 2s infinite;
+}
+
+@keyframes blink-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(255,0,0,0.4);
+    }
+    50% {
+      box-shadow: 0 0 0px red;
+    }
+  }
+
+.remote-text {
+    color: rgb(245, 234, 235);
+    font-family: 'Yellowtail', 'Arial Narrow', Arial, sans-serif;
+    font-size: 28px;
+}
+
+/* Adjusting the remote for smaller screens */
+@media (max-width: 320px) {
+    .remote {
+        width: 95vw; 
+        height: fit-content; 
+        max-height: none; 
+        margin-top: 5vh; 
+        border-radius: 10px;
+        border: none;
+        box-shadow: 0 4px 50px rgba(0,0,0,0);
+    }
+
+    body {
+        background-color: #333;
+    }
+
 }
