@@ -1,29 +1,41 @@
 let serverIP = '';
 let isFetching = false;
 
-function fetchConfig() {
-    fetch('/config')
-        .then(response => response.json())
-        .then(config => {
-            serverIP = config.serverIP;
-        })
-        .catch(error => console.error('Error fetching config:', error));
+async function fetchConfig() {
+    try {
+        const response = await fetch('/config');
+        const config = await response.json();
+        serverIP = config.serverIP;
+    } catch (error) {
+        console.error('Error fetching config:', error);
+    }
 }
 
-function sendCommand(command) {
+document.addEventListener('DOMContentLoaded', () => {
+    const volumeButtons = document.querySelectorAll('.vol-up, .vol-down, .rewind, .forward');
+    
+    volumeButtons.forEach(button => {
+        button.addEventListener('touchstart', (event) => {
+            event.preventDefault(); // Prevents the default touch behavior, like zooming
+            const command = button.getAttribute('data-command');
+            sendCommand(command);
+        });
+    });
+});
+
+const sendCommand = async (command) => {
     if (isFetching) return;
     isFetching = true;
 
-    fetch(`http://192.168.1.213:3000/${command}`)
-        .then(response => response.text())
-        .then(data => {
-            console.log(data);
-            isFetching = false;
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            isFetching = false;
-        });
-}
+    try {
+        const response = await fetch(`http://${serverIP}:3000/${command}`);
+        const data = await response.text();
+        console.log(data);
+    } catch (error) {
+        console.error('Error:', error);
+    } finally {
+        isFetching = false;
+    }
+};
 
 fetchConfig();

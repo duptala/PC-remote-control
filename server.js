@@ -16,7 +16,7 @@ app.get('/config', (req, res) => {
 
 app.get('/play-pause', (req, res) => {
     robot.keyTap('space');
-    res.send('Play command received!')
+    res.send('Play-pause command received!')
 })
 
 app.get('/rewind', (req, res) => {
@@ -40,6 +40,8 @@ app.get('/volumedown', (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}/`);
+    console.log(`Server started at PORT: ${port}`);
 });
+
+module.exports = app;
 
